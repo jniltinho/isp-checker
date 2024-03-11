@@ -1,4 +1,4 @@
-Blacklist Checker
+ISP Checker
 ================
 
 Check if your IP or CIDR is blacklisted or not.
@@ -11,7 +11,7 @@ There are probably faster ways to do this so if anyone want's to cleanup or send
 
 ### Requirements
 
-* [Golang](https://golang.org/dl/) >= 1.8
+* [Golang](https://golang.org/dl/) >= 1.22
 
 ## Install
 
@@ -19,22 +19,16 @@ There are probably faster ways to do this so if anyone want's to cleanup or send
 
 #### manually
 
-Download the pre-compiled binaries from the [releases](https://github.com/ilijamt/blacklist-checker/releases) page.
+Download the pre-compiled binaries from the [releases](https://github.com/jniltinho/isp-checker/releases) page.
 
-#### homebrew
-
-```bash
-brew tap ilijamt/tap
-brew install blacklist-checker
-```
 
 ### Help
 ```bash
-$ blacklist-checker
+$ isp-checker
 A simple tool that helps you check if your IP or CIDR is blacklisted or not.
 
 Usage:
-  blacklist-checker [command]
+  isp-checker [command]
 
 Available Commands:
   check       Check available blacklists.
@@ -44,26 +38,26 @@ Available Commands:
   version     Shows the version of the application
 
 Flags:
-      --dsnbl string   DNSBL file to use, if empty it uses the internal list, should be a list of DNSBL to use, each one on a new line
+  --dsnbl string   DNSBL file to use, if empty it uses the internal list, should be a list of DNSBL to use, each one on a new line
   -h, --help           help for blacklist-checker
 
-Use "blacklist-checker [command] --help" for more information about a command.                                                                                                                                                           /0.1s
+Use "isp-checker [command] --help" for more information about a command.                                                                                                                                                           /0.1s
 ```
 
 #### IP 
 
 ```bash
-$ blacklist-checker ip 46.217.104.208
+$ isp-checker check ip 46.217.104.208
 12:51AM INF processing dsnbl=56 queries=56
 12:51AM WRN  blacklisted=true dnsbl=b.barracudacentral.org ip=46.217.104.208 responses=["127.0.0.2"]
 12:51AM WRN  blacklisted=true dnsbl=pbl.spamhaus.org ip=46.217.104.208 responses=["127.0.0.11"]
 12:51AM WRN  blacklisted=true dnsbl=zen.spamhaus.org ip=46.217.104.208 responses=["127.0.0.11"]
-12:51AM INF Finished blacklisted=3 queries=56                                                                                                                                                                                            /2.6s
+12:51AM INF Finished blacklisted=3 queries=56                                                                                                                                                                               
 ```
 
 #### CIDR
 ```bash
-$ blacklist-checker check cidr 46.217.104.208/28
+$ isp-checker check cidr 46.217.104.208/28
 12:51AM INF processing dsnbl=56 queries=896
 12:51AM WRN  blacklisted=true dnsbl=b.barracudacentral.org ip=46.217.104.215 responses=["127.0.0.2"]
 12:51AM WRN  blacklisted=true dnsbl=b.barracudacentral.org ip=46.217.104.218 responses=["127.0.0.2"]
@@ -78,7 +72,7 @@ $ blacklist-checker check cidr 46.217.104.208/28
 ...
 12:52AM WRN  blacklisted=true dnsbl=zen.spamhaus.org ip=46.217.104.222 responses=["127.0.0.11"]
 12:52AM WRN  blacklisted=true dnsbl=zen.spamhaus.org ip=46.217.104.218 responses=["127.0.0.11"]
-12:52AM INF Finished blacklisted=51 queries=896                                                                                                                                                                                         /17.8s
+12:52AM INF Finished blacklisted=51 queries=896                                                                                                                                                                              
 ```
 
 #### Blacklist file format
@@ -151,5 +145,5 @@ wormrbl.imp.ch
 xbl.abuseat.org
 xbl.spamhaus.org
 zen.spamhaus.org
-zombie.dnsbl.sorbs.net                                                                                                                                                                                                                   /0.1s
+zombie.dnsbl.sorbs.net                                                                                                                                                                                      
 ```
