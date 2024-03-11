@@ -13,7 +13,7 @@ get:
 
 
 build:
-	CGO_ENABLED=0 $(GOBUILD) -o $(BINARY_NAME) -v -ldflags="-s -w" ./cmd/blacklist-checker/main.go
+	CGO_ENABLED=0 $(GOBUILD) -o $(BINARY_NAME) -v -ldflags="-s -w" ./cmd/blacklist/main.go
 	upx $(BINARY_NAME)
 
 

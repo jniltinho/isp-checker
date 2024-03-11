@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"isp_checker/cmd/blacklist-checker/cmd"
+	"isp_checker/cmd/blacklist/cmd"
 
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
