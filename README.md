@@ -39,7 +39,7 @@ Available Commands:
 
 Flags:
   --dsnbl string   DNSBL file to use, if empty it uses the internal list, should be a list of DNSBL to use, each one on a new line
-  -h, --help           help for blacklist-checker
+  -h, --help           help for isp-checker
 
 Use "isp-checker [command] --help" for more information about a command.                                                                                                                                                           /0.1s
 ```
