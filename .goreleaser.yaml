@@ -20,7 +20,7 @@ builds:
       - CGO_ENABLED=0
     main: ./cmd/blacklist/main.go
     ldflags:
-      - "-extldflags '-static'"
+      - "-s -w"
       - "-X 'isp_checker.BuildVersion={{ .Version }}'"
       - "-X 'isp_checker.BuildHash={{ .FullCommit }}'"
       - "-X 'isp_checker.BuildDate={{ .Date }}'"
